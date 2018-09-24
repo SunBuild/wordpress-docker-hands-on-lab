@@ -122,7 +122,8 @@ To generate this message, Docker took the following steps:
 
 ## Exercise 3: Create MySQL database on Azure 
 
-### Step 1 : Create a MySQL server using [Azure Database for MySQL](https://azure.microsoft.com/en-us/services/mysql/) . In this example , we are creating a MySQL 5.7 server in West US named ```mydemoserver``` in your resource group ```myresourcegroup``` with server admin login ```myadmin```. This is a Gen 4 General Purpose server with 2 vCores. Substitute the ```<server_admin_password>``` with your own value.
+### Step 1 : Create a MySQL server using [Azure Database for MySQL](https://azure.microsoft.com/en-us/services/mysql/) . 
+In this example , we are creating a MySQL 5.7 server in West US named ```mydemoserver``` in your resource group ```myresourcegroup``` with server admin login ```myadmin```. This is a Gen 4 General Purpose server with 2 vCores. Substitute the ```<server_admin_password>``` with your own value.
 
 	az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
 
