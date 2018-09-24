@@ -123,12 +123,13 @@ To generate this message, Docker took the following steps:
 ## Exercise 3: Create MySQL database on Azure 
 
 ### Step 1 : Create a MySQL server using [Azure Database for MySQL](https://azure.microsoft.com/en-us/services/mysql/) . 
+
 In this example , we are creating a MySQL 5.7 server in West US named ```mydemoserver``` in your resource group ```myresourcegroup``` with server admin login ```myadmin```. This is a Gen 4 General Purpose server with 2 vCores. Substitute the ```<server_admin_password>``` with your own value.
 
 	az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
 
 
-#### Step 2 : Configure Firewall to allow on Azure Services to have access to your MySQL Server. 
+### Step 2 : Configure Firewall to allow on Azure Services to have access to your MySQL Server. 
 
 	az mysql server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowMyIP --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 
@@ -136,11 +137,11 @@ To create the database , make sure you allow your IP address to access the serve
 
 	az mysql server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowMyIP --start-ip-address <My-IP-Address> --end-ip-address <My-IP-Address>
 
-#### Step 3 : Disable SSL for MySQL server for the purpose of this lab. By default SSL is enabled on MySQL server . If your app code is connecting to MySQL server via SSL , please skip this step.
+### Step 3 : Disable SSL for MySQL server for the purpose of this lab. By default SSL is enabled on MySQL server . If your app code is connecting to MySQL server via SSL , please skip this step.
 
 	az mysql server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Disabled
 
-#### Step 4:  Create a database 
+### Step 4:  Create a database 
 
 Connect to your MySQL server using MySQL command line utility. Make sure MySQL is installed on your local machine 
 
@@ -154,11 +155,11 @@ Connect to your MySQL server using MySQL command line utility. Make sure MySQL i
 
 ## Exercise 4 : Dockerizing your Wordpress application 
 
-### Step 1 : Pull the image files locally  
+#### Step 1 : Pull the image files locally  
 
 [Download](https://wordpress.org/download/) and setup WordPress locally . For details , see [how to get started with WordPress](https://codex.wordpress.org/Getting_Started_with_WordPress).  
 
-## Step 2: Locally build a Docker image  
+#### Step 2: Locally build a Docker image  
 You can edit the files using ```vim [filepath]``` or ```nano [filepath]``` based on your editor tool you use on your local machine. Update ```wp-config.php``` to read database information from Application Settings as shown [here](https://github.com/Azure/app-service-quickstart-docker-images/blob/master/wordpress-alpine-php/0.61/wp-config.php)
 
    
